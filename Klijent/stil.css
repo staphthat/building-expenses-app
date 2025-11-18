@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+.zgrada-kontejner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.levi-div {
+    width: 350px; 
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.izbor-okvir { 
+    border: 1px dashed gray;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.stan-kontejner {
+    border: 1px dashed gray; 
+    padding: 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.levi-div select, .levi-div button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.izracunaj-button {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.stan-kontejner div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2px;
+}
+
+.desni-div {
+    flex-grow: 1; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px; 
+    align-content: flex-start;
+}
+
+.racun-kontejner {
+    width: 200px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.racun-kontejner.placen {
+    background-color: lightgreen; 
+}
+
+.racun-kontejner.neplacen {
+    background-color: lightsalmon;
+}
+
+.racun-red {
+    display: flex;
+    justify-content: space-between;
+}
