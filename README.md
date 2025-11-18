@@ -27,7 +27,7 @@ The UI provides immediate visual feedback to the user:
 
 * **Backend:** C# .NET 8.0, Entity Framework Core
 * **Database:** SQL Server
-* **Frontend:** Vanilla JavaScript (ES6), HTML5, CSS3
+* **Frontend:** Vanilla JavaScript, HTML5, CSS3
 * **Communication:** Fetch API, CORS enabled for secure client-server communication.
 
 ## How It Works
