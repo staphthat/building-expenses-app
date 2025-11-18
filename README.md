@@ -1,32 +1,37 @@
-# Building Expenses Tracker (Aplikacija za Troškove Zgrade)
+# Building Expenses Tracker (Evidencija Troškova Zgrade)
 
-A web application designed to help building managers and tenants track monthly utility bills and maintenance expenses. Ideally used for calculating debts per apartment unit.
+A web application for managing apartment bills and calculating total debts. The system allows the building manager to view information for each apartment, track paid/unpaid bills, and calculate total debt in real-time.
 
 ![App Screenshot](screenshot.png)
 
-## Functionalities (Funkcionalnosti)
+## Key Features (Glavne Funkcionalnosti)
 
-This project focuses on DOM manipulation and specific calculation logic tailored to building management.
+This project demonstrates how to connect a .NET backend with a JavaScript frontend to handle financial data.
 
-* **Apartment Selection:** Users can select an apartment unit from a dropdown menu to load specific data.
-* **Data Visualization:**
-    * Fetches and displays bills dynamically using **JavaScript Fetch API**.
-    * **Color Coded Status:** Automatically visualizes payment status (Green = Paid/Da, Red = Unpaid/Ne).
-* **Financial Logic:**
-    * **Debt Calculation:** Includes a specific algorithm to sum up unpaid bills for the selected apartment.
-    * Real-time calculation displayed on the UI upon user request.
-* **Responsive Design:** The interface adapts to different screen sizes (cards stack vertically on mobile devices using CSS Flexbox/Grid).
+### 1. Dynamic Debt Calculation (Računanje Dugovanja)
+The application does not just list bills; it performs calculations on demand.
+* **Backend Logic:** The `IzracunajUkupnoZaduzenje` API endpoint uses **LINQ** (`SumAsync`) to filter only unpaid bills and calculate the total sum directly in the database.
+* **Frontend:** The calculation is triggered by a button click, fetching the result asynchronously without reloading the page.
+
+### 2. Automatic Business Rules (Automatska Logika)
+To prevent human error, some data is calculated automatically by the system:
+* When a new bill is created, Electricity and Utility costs are **automatically calculated** based on the number of family members (e.g., `150 * FamilyMembers`), ensuring consistency.
+
+### 3. Visual Status Indicators
+The UI provides immediate visual feedback to the user:
+* **Green Cards:** Indicate paid bills (`Placen: Da`).
+* **Red Cards:** Indicate unpaid bills (`Placen: Ne`).
+* This is achieved through **conditional CSS classes** applied via JavaScript based on the data received from the API.
 
 ## Tech Stack
 
 * **Backend:** C# .NET 8.0, Entity Framework Core
-* **Frontend:** JavaScript (Vanilla), HTML5, CSS3
 * **Database:** SQL Server
-* **API:** RESTful API endpoints (GET, POST functionality implemented in controllers)
+* **Frontend:** Vanilla JavaScript (ES6), HTML5, CSS3
+* **Communication:** Fetch API, CORS enabled for secure client-server communication.
 
-## Learning Outcomes
+## How It Works
 
-This project was built to practice:
-1.  Connecting backend models with frontend UI.
-2.  Handling logic for specific items (filtering bills by Apartment ID).
-3.  Creating responsive layouts manually via CSS.
+1.  **Select Apartment:** The user selects an apartment number from a dropdown menu populated from the database.
+2.  **View Details:** The app fetches owner details and a list of all bills using `GET` requests.
+3.  **Calculate Debt:** By clicking "Izracunaj ukupno zaduzenje", the app sends a request to the server to sum up all unpaid costs for that specific apartment.

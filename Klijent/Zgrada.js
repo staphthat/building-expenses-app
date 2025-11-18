@@ -78,5 +78,4 @@ export class Zgrada1
             throw new Error(e.message);
         }
     }
-
 }
