@@ -15,7 +15,7 @@ The application does not just list bills; it performs calculations on demand.
 
 ### 2. Automatic Business Rules (Automatska Logika)
 To prevent human error, some data is calculated automatically by the system:
-* When a new bill is created, Electricity and Utility costs are **automatically calculated** based on the number of family members (e.g., `150 * FamilyMembers`), ensuring consistency.
+* When a new bill is created, Electricity and Utility costs are **automatically calculated** based on the number of family members (e.g., `150 * BrojClanova`), ensuring consistency.
 
 ### 3. Visual Status Indicators
 The UI provides immediate visual feedback to the user:
